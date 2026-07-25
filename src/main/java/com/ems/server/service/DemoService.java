@@ -23,8 +23,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * 데모 자동 흘리기 서비스.
  *
- * 핵심 정책 — 가이드는 record 와 *함께* 흘린다:
- *   1) 시작 시 agent_guide.json 의 risk_points 7건을 timestamp 매핑 (Map<String, RiskPoint>)
+ * 데모 전용 정책 — 가이드를 record 와 *함께* 흘린다:
+ *   (실제 수신 경로에서는 record 와 가이드가 분리 도착하지만,
+ *    데모에서는 화면이 매끄럽게 그려지도록 묶어서 처리한다.)
+ *   1) 시작 시 agent_guide.json 의 risk_points(정상 포함 전 시점)를
+ *      timestamp 로 매핑 (Map<String, RiskPoint>)
  *   2) 매 record 처리할 때 그 timestamp 가 매핑에 있으면 ai_guide row 같이 저장
  *   3) WebSocket 송출 시 record 페이로드에 guide 정보 같이 포함
  *

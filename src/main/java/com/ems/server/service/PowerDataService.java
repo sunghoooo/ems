@@ -73,7 +73,7 @@ public class PowerDataService {
      * record + (있으면) 해당 시점의 가이드(risk_point)를 한 트랜잭션에 저장하고,
      * WebSocket 으로 한 페이로드에 묶어 송출.
      *
-     * 데모용: agent_guide.json 의 risk_points 7건을 timestamp 매칭하여
+     * 데모용: agent_guide.json 의 risk_points(정상 포함 전 시점)를 timestamp 매칭하여
      * 그 시점의 record 가 도착할 때 함께 처리한다.
      *
      * → 프론트는 record 받자마자 그 시점이 위험인지 즉시 안다.

@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 /**
  * 15분 단위 전력 데이터 한 건. 매 15분마다 분석 서버에서 1건씩 전송된다.
  *
- * 이전 batch 구조의 자식 관계(report_id FK)는 제거하고 독립 테이블로 운영한다.
  * AI 가이드(ai_guide)는 이 엔티티의 id 와 같은 값을 PK 로 공유한다 (@MapsId).
  */
 @Entity
