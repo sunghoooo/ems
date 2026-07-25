@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+bin/
+.idea/
+.vscode/
+*.iml
+.settings/
+.classpath
+.project
+
+# macOS
+.DS_Store
+__MACOSX/
+._*
+
+# 환경 설정 (로컬 비밀값)
+.env
+application-local.properties
+
+# 로그
+*.log

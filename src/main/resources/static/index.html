@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>AI 실시간 전력 모니터링</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; margin: 0; padding: 0; background: #f1f3f5; color: #212529; }
+
+        .layout { display: flex; min-height: 100vh; }
+
+        /* ===== 사이드바 ===== */
+        .sidebar {
+            position: fixed; top: 0; left: 0; bottom: 0;
+            width: 320px;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            box-shadow: 2px 0 12px rgba(0,0,0,0.04);
+            transform: translateX(-320px);
+            transition: transform 0.25s ease;
+            z-index: 100;
+            display: flex; flex-direction: column;
+        }
+        .sidebar.open { transform: translateX(0); }
+        .sidebar-head {
+            padding: 18px 20px; border-bottom: 1px solid #f3f4f6;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .sidebar-head h2 { margin: 0; font-size: 1.05em; color: #0f1419; }
+        .sidebar-btn {
+            background: #f8f9fa; border: 1px solid #e5e7eb; color: #4b5563;
+            padding: 5px 10px; border-radius: 5px; font-size: 0.82em; cursor: pointer;
+        }
+        .sidebar-btn:hover { background: #e5e7eb; }
+        .sidebar-list { flex: 1; overflow-y: auto; padding: 10px; }
+        .empty-state { color: #9ca3af; font-style: italic; font-size: 0.88em; padding: 30px 12px; text-align: center; }
+
+        .record-card {
+            background: white; border: 1px solid #e5e7eb;
+            border-left: 4px solid #9ca3af;
+            border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;
+            font-size: 0.88em;
+        }
+        .record-card.risk-normal   { border-left-color: #0d6efd; }
+        .record-card.risk-watch    { border-left-color: #ffc107; }
+        .record-card.risk-warn     { border-left-color: #fd7e14; }
+        .record-card.risk-critical { border-left-color: #dc3545; }
+
+        .rc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .rc-id { font-family: 'SF Mono', Menlo, monospace; color: #6b7280; font-size: 0.85em; }
+        .rc-time { color: #0f1419; font-weight: bold; }
+        .rc-badge {
+            padding: 1px 6px; border-radius: 4px; font-size: 0.72em; font-weight: bold;
+            background: #e5e7eb; color: #374151;
+        }
+        .rc-badge.risk-normal   { background: #cfe2ff; color: #084298; }
+        .rc-badge.risk-watch    { background: #fef3c7; color: #92400e; }
+        .rc-badge.risk-warn     { background: #fed7aa; color: #9a3412; }
+        .rc-badge.risk-critical { background: #fecaca; color: #991b1b; }
+
+        .rc-stats { color: #4b5563; font-size: 0.82em; margin-bottom: 6px; line-height: 1.5; }
+        .rc-stat { display: inline-block; margin-right: 9px; }
+        .rc-stat strong { color: #0f1419; }
+
+        .rc-guide-btn {
+            background: #6366f1; color: white; border: none;
+            padding: 4px 9px; border-radius: 5px; font-size: 0.78em; cursor: pointer;
+            font-weight: bold;
+        }
+        .rc-guide-btn:hover { background: #4f46e5; }
+        /* 정상 시점도 클릭 가능하게 — 비활성화 안 함, 단 색만 약하게 */
+        .rc-guide-btn.no-risk {
+            background: #e5e7eb; color: #6b7280;
+        }
+        .rc-guide-btn.no-risk:hover { background: #d1d5db; }
+
+        /* ===== 메인 ===== */
+        .main { flex: 1; padding: 18px 24px; transition: margin-left 0.25s ease; }
+        .layout.sidebar-open .main { margin-left: 320px; }
+
+        .container { max-width: 1100px; margin: 0 auto; background: white; padding: 22px 24px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+
+        header { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+        header h1 { margin: 0; font-size: 1.35em; }
+        .header-left { display: flex; align-items: center; gap: 14px; }
+        .menu-btn {
+            background: #f8f9fa; border: 1px solid #e5e7eb; color: #4b5563;
+            padding: 6px 12px; border-radius: 6px; font-size: 1.1em; cursor: pointer;
+            font-weight: bold;
+        }
+        .menu-btn:hover { background: #e5e7eb; }
+
+        .controls { display: flex; align-items: center; gap: 12px; }
+        #status { font-size: 0.92em; }
+        .online  { color: #198754; font-weight: bold; }
+        .offline { color: #dc3545; font-weight: bold; }
+        #connectBtn { background-color: #0d6efd; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; font-size: 0.93em; cursor: pointer; }
+        #connectBtn:hover { background-color: #0b5ed7; }
+        #connectBtn:disabled { background-color: #198754; cursor: not-allowed; }
+
+        .info-panel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 10px; }
+        .info-card { background: #f8f9fa; border: 1px solid #e5e7eb; padding: 12px 14px; border-radius: 10px; }
+        .info-card .label { font-size: 0.78em; color: #6c757d; margin-bottom: 4px; }
+        .info-card .value { font-size: 1.45em; font-weight: bold; }
+
+        .chart-container { position: relative; height: 42vh; width: 100%; margin-bottom: 18px; }
+
+        h3 { margin: 12px 0 8px; font-size: 1.02em; }
+
+        /* ===== AI 해설 박스 (단순) ===== */
+        .guide-panel {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border: 1px solid #d9e2ff; border-left: 5px solid #5a67d8;
+            border-radius: 10px; padding: 16px 20px; margin-bottom: 18px;
+        }
+        .guide-panel.normal { border-left-color: #10b981; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-color: #bbf7d0; }
+        .guide-panel.watch    { border-left-color: #ffc107; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: #fde68a; }
+        .guide-panel.warn     { border-left-color: #fd7e14; background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; }
+        .guide-panel.critical { border-left-color: #dc3545; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-color: #fecaca; }
+
+        .guide-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
+        .guide-head h3 { margin: 0; font-size: 1em; color: #4c51bf; }
+        .guide-panel.normal .guide-head h3   { color: #065f46; }
+        .guide-panel.watch .guide-head h3    { color: #92400e; }
+        .guide-panel.warn .guide-head h3     { color: #9a3412; }
+        .guide-panel.critical .guide-head h3 { color: #991b1b; }
+
+        .guide-meta { font-size: 0.78em; color: #6b7280; }
+
+        .guide-row { background: white; padding: 9px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.92em; line-height: 1.55; }
+        .guide-row:last-child { margin-bottom: 0; }
+        .guide-row-label { font-weight: bold; color: #374151; margin-right: 6px; font-size: 0.86em; }
+
+        .guide-empty-msg { background: white; padding: 10px 14px; border-radius: 6px; color: #6b7280; font-size: 0.92em; line-height: 1.5; }
+        .guide-normal-msg { background: white; padding: 10px 14px; border-radius: 6px; color: #065f46; font-size: 0.94em; font-weight: 500; line-height: 1.5; }
+
+        #log {
+            background: #212529; color: #f8f9fa; padding: 12px;
+            border-radius: 8px; height: 180px; overflow-y: auto;
+            font-size: 0.88em; line-height: 1.55;
+            font-family: 'SF Mono', Menlo, monospace;
+        }
+        #log > div { white-space: pre-wrap; }
+        .log-system  { color: #0dcaf0; }
+        .log-normal  { color: #adb5bd; }
+        .log-warning { color: #ffc107; font-weight: bold; }
+        .log-danger  { color: #ff6b6b; font-weight: bold; }
+
+        /* ===== 모달 ===== */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(15, 20, 25, 0.55);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; padding: 20px;
+        }
+        .modal {
+            background: white; border-radius: 14px; padding: 24px 28px;
+            max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+        .modal-head {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #e5e7eb;
+        }
+        .modal-head h2 { margin: 0; font-size: 1.1em; color: #4c51bf; }
+        .modal-meta { font-size: 0.78em; color: #6b7280; margin-top: 4px; }
+        .modal-close {
+            background: transparent; border: none; font-size: 1.6em;
+            cursor: pointer; color: #6b7280; line-height: 1; padding: 0 6px;
+        }
+        .modal-close:hover { color: #0f1419; }
+
+        .modal-body { display: flex; flex-direction: column; gap: 14px; }
+        .hidden { display: none !important; }
+
+        /* 상세 모달 환경 정보 테이블 */
+        .detail-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+        .detail-table tr { border-bottom: 1px solid #f3f4f6; }
+        .detail-table tr:last-child { border-bottom: none; }
+        .detail-table td { padding: 7px 10px; }
+
+        /* 모달의 AI 해설 박스 */
+        .guide-section-title { font-weight: bold; color: #374151; margin-bottom: 6px; font-size: 0.85em; }
+        .guide-risk-card {
+            background: white; border: 1px solid #e5e7eb; border-left: 4px solid #9ca3af;
+            border-radius: 6px; padding: 11px 13px; font-size: 0.93em; line-height: 1.5;
+        }
+        .guide-risk-card.risk-normal   { border-left-color: #0d6efd; }
+        .guide-risk-card.risk-watch    { border-left-color: #ffc107; background: #fffbf2; }
+        .guide-risk-card.risk-warn     { border-left-color: #fd7e14; background: #fff8f3; }
+        .guide-risk-card.risk-critical { border-left-color: #dc3545; background: #fef5f5; }
+        .risk-head { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; }
+        .risk-badge {
+            padding: 1px 7px; border-radius: 4px; font-size: 0.78em; font-weight: bold;
+            background: #e5e7eb; color: #374151;
+        }
+        .guide-risk-card.risk-normal   .risk-badge { background: #cfe2ff; color: #084298; }
+        .guide-risk-card.risk-watch    .risk-badge { background: #fef3c7; color: #92400e; }
+        .guide-risk-card.risk-warn     .risk-badge { background: #fed7aa; color: #9a3412; }
+        .guide-risk-card.risk-critical .risk-badge { background: #fecaca; color: #991b1b; }
+        .risk-reason   { color: #374151; margin-top: 6px; }
+        .risk-evidence { color: #6b7280; font-size: 0.9em; margin-top: 4px; }
+        .risk-action   { color: #1d4ed8; font-weight: 500; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e5e7eb; }
+
+        .guide-normal-msg {
+            background: #f0fdf4; border-left: 4px solid #10b981;
+            padding: 11px 14px; border-radius: 6px;
+            color: #065f46; font-size: 0.93em; line-height: 1.5;
+        }
+        .dt-key { color: #6b7280; width: 38%; font-weight: 600; }
+        .dt-val { color: #0f1419; font-family: 'SF Mono', Menlo, monospace; }
+    </style>
+</head>
+<body>
+    <div class="layout" id="layout">
+
+        <!-- 사이드바 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-head">
+                <h2>📋 과거 기록</h2>
+                <button class="sidebar-btn" onclick="loadInitialRecords()">↻ 새로고침</button>
+            </div>
+            <div class="sidebar-list" id="sidebar-list">
+                <div class="empty-state">백엔드에 연결하면 과거 기록이 로드됩니다.</div>
+            </div>
+        </aside>
+
+        <!-- 메인 -->
+        <main class="main">
+            <div class="container">
+                <header>
+                    <div class="header-left">
+                        <button class="menu-btn" id="menuBtn" title="과거 기록">≡</button>
+                        <h1>⚡ AI 실시간 전력 모니터링</h1>
+                    </div>
+                    <div class="controls">
+                        <span id="status">연결 상태: <span class="offline">오프라인</span></span>
+                        <button id="connectBtn">🚀 서버 연결 시작</button>
+                    </div>
+                </header>
+
+                <div class="info-panel">
+                    <div class="info-card"><div class="label">현재 시각</div><div id="info-time" class="value">-</div></div>
+                    <div class="info-card"><div class="label">현재 전력 (kW)</div><div id="info-power" class="value">-</div></div>
+                    <div class="info-card"><div class="label">위험도</div><div id="info-risk" class="value">-</div></div>
+                    <div class="info-card"><div class="label">청구 피크 대비</div><div id="info-ratio" class="value">-</div></div>
+                </div>
+
+                <div class="chart-container"><canvas id="powerChart"></canvas></div>
+
+                <!-- AI 해설 박스 (현재 시점만, 동적 클래스) -->
+                <div class="guide-panel" id="guide-panel">
+                    <div class="guide-head">
+                        <h3 id="guide-title">🤖 AI 해설 <span style="color:#9ca3af;font-weight:normal;font-size:0.85em;">· 현재 시점</span></h3>
+                        <span class="guide-meta" id="guide-meta"></span>
+                    </div>
+                    <div id="guide-body">
+                        <div class="guide-empty-msg">데이터 수신 대기 중입니다.</div>
+                    </div>
+                </div>
+
+                <h3>📝 실시간 수신 로그</h3>
+                <div id="log">
+                    <div class="log-system">시스템: 서버에 연결하여 실시간 데이터를 수신하세요.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 모달 -->
+    <div class="modal-overlay hidden" id="modal-overlay" onclick="closeModalIfOverlay(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-head">
+                <div>
+                    <h2 id="modal-title">AI 해설</h2>
+                    <div class="modal-meta" id="modal-meta"></div>
+                </div>
+                <button class="modal-close" onclick="closeGuideModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="empty-state">로딩 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // =========================================================
+    // 설정
+    // =========================================================
+    // 백엔드 주소를 동적으로 결정
+    //  - 페이지가 localhost:5500 에서 열림 → 백엔드는 http://localhost:8080
+    //  - 페이지가 192.168.x.x:5500 (같은 와이파이) → 백엔드는 http://192.168.x.x:8080
+    //  - 페이지가 ngrok URL (백엔드가 같이 서빙) → 백엔드는 같은 origin
+    const _isSameOrigin = window.location.port !== '5500';
+    const BACKEND_BASE  = _isSameOrigin
+            ? window.location.origin
+            : `http://${window.location.hostname}:8080`;
+    const WS_URL        = BACKEND_BASE + '/ws-ems';
+    const API_RECORDS   = BACKEND_BASE + '/api/records?limit=100';
+    const API_GUIDE     = (id) => `${BACKEND_BASE}/api/guides/${id}`;
+    const API_DEMO_START = BACKEND_BASE + '/api/demo/start';   // 자동 데모
+
+    // 데이터 송신 설정 — 여기서 조절
+    const DEMO_INTERVAL = 2;     // 초 단위, 실제 운영은 900(15분)
+    const DEMO_MAX      = 96;    // 흘릴 record 수 (최대 96 = 24시간치)
+
+    const VIEW_SIZE   = 16;
+    const FUTURE_SIZE = 4;
+
+    const RISK_COLOR = {
+        NORMAL:   '#0d6efd',
+        WATCH:    '#ffc107',
+        WARN:     '#fd7e14',
+        CRITICAL: '#dc3545'
+    };
+
+    // =========================================================
+    // 상태
+    // =========================================================
+    let stompClient = null;
+    let history = [];
+    let billPeakBaseline = 222;
+    let sidebarItems = new Map();   // id → DOM element
+
+    // =========================================================
+    // 차트
+    // =========================================================
+    const ctx = document.getElementById('powerChart').getContext('2d');
+    const powerChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                { label: '실측 전력 (kW)', data: [], borderColor: '#0d6efd', backgroundColor: '#0d6efd',
+                  borderWidth: 3, tension: 0.3, pointBackgroundColor: [], pointRadius: 5, spanGaps: false },
+                { label: '예측 (다음 1시간)', data: [], borderColor: '#fd7e14', backgroundColor: '#fd7e14',
+                  borderWidth: 2, borderDash: [6, 4], tension: 0.3, pointRadius: 4, spanGaps: false },
+                { label: '청구 피크 임계', data: [], borderColor: '#dc3545',
+                  borderWidth: 1.5, borderDash: [2, 3], pointRadius: 0, fill: false }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            animation: { duration: 350 },
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // =========================================================
+    // 사이드바 토글
+    // =========================================================
+    document.getElementById('menuBtn').addEventListener('click', () => {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('layout').classList.toggle('sidebar-open');
+    });
+
+    // =========================================================
+    // WebSocket
+    // =========================================================
+    function connect() {
+        const btn = document.getElementById('connectBtn');
+        const socket = new SockJS(WS_URL);
+        stompClient = Stomp.over(socket);
+        stompClient.debug = null;
+
+        btn.innerText = '⏳ 연결 중...';
+        btn.disabled = true;
+
+        stompClient.connect({}, function () {
+            document.getElementById('status').innerHTML = '연결 상태: <span class="online">온라인</span>';
+            btn.innerText = '✅ 연결됨';
+            appendLog('log-system', '시스템: 백엔드 연결 완료. 과거 기록 로드 중...');
+
+            loadInitialRecords();
+
+            stompClient.subscribe('/topic/alerts', function (payload) {
+                try {
+                    const data = JSON.parse(payload.body);
+                    routeMessage(data);
+                } catch (e) {
+                    appendLog('log-danger', '시스템: 페이로드 파싱 실패 — ' + e.message);
+                }
+            });
+
+            // 자동 데모 시작 — 백엔드 저장된 JSON 으로 record 차례 흘리기
+            startAutoDemo();
+        }, function () {
+            document.getElementById('status').innerHTML = '연결 상태: <span class="offline">연결 실패</span>';
+            btn.innerText = '❌ 재시도';
+            btn.disabled = false;
+            appendLog('log-danger', '시스템: 서버 연결 실패. 백엔드(localhost:8080)가 켜져 있는지 확인하세요.');
+        });
+    }
+
+    function routeMessage(data) {
+        if (!data) return;
+        if (data.type === 'record')         return handleRecord(data);
+        if (data.type === 'guide_updated')  return handleGuideUpdated(data);   // 백워드 호환 — 분석팀 진짜 송신 시
+    }
+
+    // =========================================================
+    // record 수신
+    // =========================================================
+    function handleRecord(data) {
+        history.push(data);
+        if (history.length > VIEW_SIZE * 4) history.shift();
+
+        if (data.risk && typeof data.risk.bill_peak_baseline === 'number') {
+            billPeakBaseline = data.risk.bill_peak_baseline;
+        }
+
+        drawChart(data);
+        updateInfoPanel(data);
+        prependRecordToSidebar(data);
+        logRecord(data);
+
+        // 메인 박스: 페이로드에 guide 가 같이 왔으면 즉시 사용, 없으면 정상 메시지
+        if (data.guide) {
+            renderMainBoxRisk({
+                riskLevel: data.guide.riskLevel,
+                reason: data.guide.reason,
+                evidence: data.guide.evidence,
+                action: data.guide.action,
+                llmModel: data.guide.llmModel,
+                recordTimestamp: data.timestamp
+            }, data.timestamp);
+        } else {
+            renderMainBoxNormal(data.timestamp);
+        }
+    }
+
+    function drawChart(latest) {
+        const visible = history.slice(-VIEW_SIZE);
+
+        const pastLabels = visible.map(r => shortTime(r.timestamp));
+        const futureLabels = futureLabelsOf(latest.timestamp, FUTURE_SIZE);
+        const allLabels = pastLabels.concat(futureLabels);
+
+        const realPast = visible.map(r => safeNum(r.current_power));
+        const realData = realPast.concat(new Array(FUTURE_SIZE).fill(null));
+
+        // 그래프 점 색상도 가이드 기준 — 가이드 있는 시점만 그 위험도 색, 그 외 NORMAL
+        const pastColors = visible.map(r => {
+            const lvl = (r.guide && r.guide.riskLevel) ? r.guide.riskLevel : 'NORMAL';
+            return RISK_COLOR[lvl] || '#0d6efd';
+        });
+        const allPointColors = pastColors.concat(new Array(FUTURE_SIZE).fill('#fd7e14'));
+
+        const predHead = new Array(visible.length - 1).fill(null);
+        const linkPoint = safeNum(latest.current_power);
+        const future1h = ((latest.predicted_next_1hour) || []).slice(0, FUTURE_SIZE);
+        const predData = predHead.concat([linkPoint]).concat(future1h);
+
+        const thresholdData = new Array(allLabels.length).fill(billPeakBaseline);
+
+        powerChart.data.labels = allLabels;
+        powerChart.data.datasets[0].data = realData;
+        powerChart.data.datasets[0].pointBackgroundColor = allPointColors;
+        powerChart.data.datasets[1].data = predData;
+        powerChart.data.datasets[2].data = thresholdData;
+        powerChart.update();
+    }
+
+    function updateInfoPanel(rec) {
+        const power = safeNum(rec.current_power);
+        // 위험도 표시도 가이드 기준으로 통일 (가이드 없으면 NORMAL)
+        const lvl   = (rec.guide && rec.guide.riskLevel) ? rec.guide.riskLevel : 'NORMAL';
+        const ratio = (rec.risk && typeof rec.risk.ratio_to_peak === 'number') ? rec.risk.ratio_to_peak : 0;
+
+        document.getElementById('info-time').textContent  = shortTime(rec.timestamp);
+        document.getElementById('info-power').textContent = power !== null ? power.toFixed(1) : '-';
+
+        const riskEl = document.getElementById('info-risk');
+        riskEl.textContent = lvl;
+        riskEl.style.color = RISK_COLOR[lvl] || '#333';
+
+        document.getElementById('info-ratio').textContent = (ratio * 100).toFixed(1) + ' %';
+    }
+
+    function logRecord(rec) {
+        const time   = shortTime(rec.timestamp);
+        // 로그 위험도도 가이드 기준 — 가이드 있으면 그 etc, 없으면 NORMAL
+        const lvl    = (rec.guide && rec.guide.riskLevel) ? rec.guide.riskLevel : 'NORMAL';
+        const power  = safeNum(rec.current_power);
+        const pred15 = safeNum(rec.predicted_next_15min);
+        const reason = (rec.guide && rec.guide.reason) || '';
+
+        let cls = 'log-normal';
+        if (lvl === 'CRITICAL') cls = 'log-danger';
+        else if (lvl === 'WARN' || lvl === 'WATCH') cls = 'log-warning';
+
+        const msg = `[${time}] ${power !== null ? power.toFixed(1) : '-'}kW   `
+                  + `+15분 예측 ${pred15 !== null ? pred15.toFixed(1) : '-'}kW   `
+                  + `${lvl}${reason ? ' (' + reason + ')' : ''}`;
+        appendLog(cls, msg);
+    }
+
+    // =========================================================
+    // guide_updated 수신 — 가이드 도착 알림 처리
+    // =========================================================
+    function handleGuideUpdated(data) {
+        appendLog('log-system', `🤖 AI 해설 수신 — 위험 시점 ${data.matched}건 매칭`);
+
+        // ai_guide 트랜잭션 commit 직후 송출이라, 약간의 delay 후 fetch (안전망).
+        // 그래야 백엔드 응답에 새 가이드 매칭 정보가 반영된다.
+        setTimeout(() => {
+            loadInitialRecords();
+
+            if (history.length > 0) {
+                const latest = history[history.length - 1];
+                updateMainGuideBox(latest.id, latest.timestamp);
+            }
+        }, 500);
+    }
+
+    // =========================================================
+    // 메인 AI 해설 박스 — 현재 시점의 위험 정보 또는 정상 메시지
+    // =========================================================
+    async function updateMainGuideBox(recordId, recordTimestamp) {
+        if (recordId == null) {
+            renderMainBoxEmpty();
+            return;
+        }
+        try {
+            const res = await fetch(`${API_GUIDE(recordId)}?_=${Date.now()}`, { cache: 'no-store' });
+            if (res.status === 404) {
+                renderMainBoxNormal(recordTimestamp);
+                return;
+            }
+            if (!res.ok) {
+                renderMainBoxEmpty();
+                return;
+            }
+            const guide = await res.json();
+            renderMainBoxRisk(guide, recordTimestamp);
+        } catch (e) {
+            renderMainBoxEmpty();
+        }
+    }
+
+    function renderMainBoxEmpty() {
+        const panel = document.getElementById('guide-panel');
+        panel.classList.remove('normal','watch','warn','critical');
+        document.getElementById('guide-meta').textContent = '';
+        document.getElementById('guide-body').innerHTML =
+            `<div class="guide-empty-msg">데이터 수신 대기 중입니다.</div>`;
+    }
+
+    function renderMainBoxNormal(timestamp) {
+        const panel = document.getElementById('guide-panel');
+        panel.classList.remove('watch','warn','critical');
+        panel.classList.add('normal');
+        document.getElementById('guide-meta').textContent = timestamp || '';
+        document.getElementById('guide-body').innerHTML =
+            `<div class="guide-normal-msg">✅ <strong>정상 운영 중</strong> — 별도 위험 신호가 감지되지 않았습니다.</div>`;
+    }
+
+    function renderMainBoxRisk(guide, timestamp) {
+        const panel = document.getElementById('guide-panel');
+        panel.classList.remove('normal','watch','warn','critical');
+        const lvl = (guide.riskLevel || 'WATCH').toUpperCase();
+        panel.classList.add(lvl.toLowerCase());
+
+        const meta = `${timestamp || guide.recordTimestamp || ''} ${guide.llmModel ? '· ' + guide.llmModel : ''}`;
+        document.getElementById('guide-meta').textContent = meta;
+
+        const actionRow = guide.action
+            ? `<div class="guide-row"><span class="guide-row-label">조치</span>${escapeHtml(guide.action)}</div>`
+            : '';
+        document.getElementById('guide-body').innerHTML = `
+            <div class="guide-row"><span class="guide-row-label">위험도</span><strong>${escapeHtml(lvl)}</strong></div>
+            <div class="guide-row"><span class="guide-row-label">사유</span>${escapeHtml(guide.reason || '-')}</div>
+            <div class="guide-row"><span class="guide-row-label">근거</span>${escapeHtml(guide.evidence || '-')}</div>
+            ${actionRow}
+        `;
+    }
+
+    // =========================================================
+    // 사이드바 — 초기 로드
+    // =========================================================
+    async function loadInitialRecords() {
+        try {
+            // 캐시 무력화 — 자동 새로고침 시 옛 응답 받지 않게
+            const url = `${API_RECORDS}&_=${Date.now()}`;
+            const res = await fetch(url, { cache: 'no-store' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const list = await res.json();
+            renderSidebarInitial(list);
+        } catch (e) {
+            appendLog('log-warning', '시스템: 과거 기록 로드 실패 — ' + e.message);
+        }
+    }
+
+    function renderSidebarInitial(list) {
+        const container = document.getElementById('sidebar-list');
+        container.innerHTML = '';
+        sidebarItems.clear();
+
+        if (!list || list.length === 0) {
+            container.innerHTML = '<div class="empty-state">아직 도착한 기록이 없습니다.</div>';
+            return;
+        }
+
+        list.forEach(item => {
+            const node = buildSidebarCard({
+                id: item.id, timestamp: item.timestamp,
+                currentPower: item.currentPower, humidity: item.humidity, workers: item.workers,
+                riskLevel: item.riskLevel, hasGuide: item.hasGuide
+            });
+            container.appendChild(node);
+            sidebarItems.set(item.id, node);
+        });
+    }
+
+    // =========================================================
+    // 사이드바 — 실시간 prepend
+    // =========================================================
+    function prependRecordToSidebar(data) {
+        // 페이로드에 guide 가 같이 왔으면 그 시점은 위험 시점.
+        // 모달에서 백엔드 fetch 의 트랜잭션 타이밍 이슈 회피 위해
+        // guide 정보를 item 에 보존 → 모달이 fetch 없이 즉시 사용 가능.
+        const item = {
+            id: data.id,
+            timestamp: data.timestamp,
+            currentPower: data.current_power,
+            temp: data.context && data.context.temp,
+            humidity: data.context && data.context.humidity,
+            production: data.context && data.context.production,
+            workers: data.context && data.context.workers,
+            quarter: data.context && data.context.quarter,
+            isWeekend: data.context && data.context.is_weekend,
+            isHoliday: data.context && data.context.is_holiday,
+            riskLevel: data.guide ? (data.guide.riskLevel || 'WATCH') : 'NORMAL',
+            hasGuide: !!data.guide,
+            guide: data.guide || null
+        };
+
+        if (sidebarItems.has(item.id)) {
+            sidebarItems.get(item.id).remove();
+            sidebarItems.delete(item.id);
+        }
+
+        const container = document.getElementById('sidebar-list');
+        const empty = container.querySelector('.empty-state');
+        if (empty) empty.remove();
+
+        const node = buildSidebarCard(item);
+        container.prepend(node);
+        sidebarItems.set(item.id, node);
+
+        while (container.children.length > 200) {
+            const last = container.lastElementChild;
+            sidebarItems.delete(Number(last.dataset.id));
+            last.remove();
+        }
+    }
+
+    function buildSidebarCard(item) {
+        const rl = (item.riskLevel || 'NORMAL').toUpperCase();
+        const rlClass = 'risk-' + rl.toLowerCase();
+
+        const div = document.createElement('div');
+        div.className = 'record-card ' + rlClass;
+        div.dataset.id = item.id;
+
+        const power = (typeof item.currentPower === 'number') ? item.currentPower.toFixed(1) : '-';
+
+        div.innerHTML = `
+            <div class="rc-head">
+                <span><span class="rc-id">#${item.id}</span>  <span class="rc-time">${escapeHtml(shortTime(item.timestamp))}</span></span>
+                <span class="rc-badge ${rlClass}">${escapeHtml(rl)}</span>
+            </div>
+            <div class="rc-stats">
+                <span class="rc-stat">⚡ <strong>${power}</strong> kW</span>
+            </div>
+            <button class="rc-guide-btn" data-id="${item.id}">📋 상세보기</button>
+        `;
+
+        div.querySelector('button').addEventListener('click', () => openDetailModal(item));
+        return div;
+    }
+
+    function markGuideAvailable(id) {
+        const node = sidebarItems.get(Number(id));
+        if (!node) return;
+        const btn = node.querySelector('button');
+        if (!btn) return;
+        btn.className = 'rc-guide-btn';   // no-risk 제거
+        btn.textContent = '⚠️ AI 해설 보기';
+    }
+
+    // =========================================================
+    // 모달 — 위험 시점이면 정보, 정상이면 메시지
+    // =========================================================
+    // =========================================================
+    // 상세보기 모달 — 환경 정보(번역) + 가이드(있으면)
+    // =========================================================
+    async function openDetailModal(item) {
+        const overlay = document.getElementById('modal-overlay');
+        const body = document.getElementById('modal-body');
+        document.getElementById('modal-title').textContent = `#${item.id} 상세 정보`;
+        document.getElementById('modal-meta').textContent = item.timestamp || '';
+        overlay.classList.remove('hidden');
+
+        // WebSocket 으로 받을 때 guide 가 item 에 같이 보존됐으면 fetch 없이 그대로 사용
+        // → 백엔드 트랜잭션 commit 타이밍 차이로 fetch 가 404 받는 문제 회피
+        if (item.guide) {
+            renderDetailModal(item, item.guide);
+            return;
+        }
+        // 사이드바를 백엔드에서 새로 가져온 경우 (item.guide 없음) → hasGuide 면 fetch 시도
+        if (!item.hasGuide) {
+            renderDetailModal(item, null);
+            return;
+        }
+
+        body.innerHTML = '<div class="empty-state">로딩 중...</div>';
+        let guide = null;
+        try {
+            const res = await fetch(`${API_GUIDE(item.id)}?_=${Date.now()}`, { cache: 'no-store' });
+            if (res.ok) {
+                guide = await res.json();
+            }
+        } catch (e) {
+            // 무시
+        }
+        renderDetailModal(item, guide);
+    }
+
+    function renderDetailModal(item, guide) {
+        const body = document.getElementById('modal-body');
+
+        // ─ 환경 정보 (record context) ─
+        const envRows = [
+            ['시각',         item.timestamp || '-'],
+            ['전력 (kW)',    fmtNum(item.currentPower, 1)],
+            ['온도 (°C)',    fmtNum(item.temp, 1)],
+            ['습도 (%)',     fmtNum(item.humidity, 1)],
+            ['생산량',       fmtNum(item.production, 1)],
+            ['작업자',       fmtNum(item.workers, 2)],
+            ['주말 여부',    item.isWeekend ? '주말' : '평일'],
+            ['공휴일 여부',  item.isHoliday ? '공휴일' : '평일'],
+        ];
+
+        const envHtml = `
+            <div>
+                <div class="guide-section-title">환경 정보</div>
+                <table class="detail-table">
+                    ${envRows.map(([k, v]) => `
+                        <tr>
+                            <td class="dt-key">${escapeHtml(k)}</td>
+                            <td class="dt-val">${escapeHtml(String(v))}</td>
+                        </tr>
+                    `).join('')}
+                </table>
+            </div>
+        `;
+
+        // ─ AI 해설 (가이드 있으면 정보, 없으면 정상 메시지) ─
+        let aiHtml;
+        if (guide) {
+            const lvl = (guide.riskLevel || 'NORMAL').toUpperCase();
+            const lvlClass = 'risk-' + lvl.toLowerCase();
+            const actionHtml = guide.action
+                ? `<div class="risk-action"><strong>조치:</strong> ${escapeHtml(guide.action)}</div>`
+                : '';
+            aiHtml = `
+                <div>
+                    <div class="guide-section-title">AI 해설</div>
+                    <div class="guide-risk-card ${lvlClass}">
+                        <div class="risk-head">
+                            <span class="risk-badge">${escapeHtml(lvl)}</span>
+                            <span style="color:#6b7280;font-size:0.82em;">${escapeHtml(guide.llmModel || '')}</span>
+                        </div>
+                        <div class="risk-reason"><strong>사유:</strong> ${escapeHtml(guide.reason || '-')}</div>
+                        <div class="risk-evidence"><strong>근거:</strong> ${escapeHtml(guide.evidence || '-')}</div>
+                        ${actionHtml}
+                    </div>
+                </div>
+            `;
+        } else {
+            aiHtml = `
+                <div>
+                    <div class="guide-section-title">AI 해설</div>
+                    <div class="guide-normal-msg">
+                        ✅ <strong>정상 운영 시점</strong> — 이 시점은 별도 위험 신호가 감지되지 않았습니다.
+                    </div>
+                </div>
+            `;
+        }
+
+        body.innerHTML = envHtml + aiHtml;
+    }
+
+    function fmtNum(v, digits) {
+        if (typeof v !== 'number' || !isFinite(v)) return '-';
+        return v.toFixed(digits);
+    }
+
+    function closeGuideModal() {
+        document.getElementById('modal-overlay').classList.add('hidden');
+    }
+    function closeModalIfOverlay(e) {
+        if (e.target.id === 'modal-overlay') closeGuideModal();
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeGuideModal();
+    });
+
+    // =========================================================
+    // 자동 데이터 수신 시작 (백엔드의 저장 데이터로부터)
+    // =========================================================
+    async function startAutoDemo() {
+        try {
+            const url = `${API_DEMO_START}?interval=${DEMO_INTERVAL}&max=${DEMO_MAX}`;
+            const res = await fetch(url, { method: 'POST' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            await res.json();
+            // 시스템 로그는 굳이 표시하지 않음 — 곧 record 가 도착하면서 자연스럽게 화면 갱신됨
+        } catch (e) {
+            appendLog('log-warning', '시스템: 데이터 수신 시작 실패 — ' + e.message);
+        }
+    }
+
+    // =========================================================
+    // helpers
+    // =========================================================
+    function appendLog(cls, text) {
+        const logDiv = document.getElementById('log');
+        const line = document.createElement('div');
+        line.className = cls;
+        line.textContent = text;
+        logDiv.appendChild(line);
+        logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+    function safeNum(v) {
+        return (typeof v === 'number' && isFinite(v)) ? v : null;
+    }
+
+    function shortTime(ts) {
+        if (!ts || typeof ts !== 'string') return '-';
+        const parts = ts.split(' ');
+        if (parts.length < 2) return ts;
+        return parts[1].slice(0, 5);
+    }
+
+    function futureLabelsOf(ts, n) {
+        try {
+            const time = ts.split(' ')[1];
+            const [h, m] = time.split(':').map(Number);
+            let totalMin = h * 60 + m;
+            const out = [];
+            for (let i = 1; i <= n; i++) {
+                totalMin += 15;
+                const hh = Math.floor(totalMin / 60) % 24;
+                const mm = totalMin % 60;
+                out.push(String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0'));
+            }
+            return out;
+        } catch (e) {
+            return new Array(n).fill('');
+        }
+    }
+
+    function escapeHtml(s) {
+        return String(s)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#39;');
+    }
+
+    document.getElementById('connectBtn').addEventListener('click', connect);
+    </script>
+</body>
+</html>

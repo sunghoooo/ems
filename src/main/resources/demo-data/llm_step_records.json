@@ -1,0 +1,3071 @@
+[
+  {
+    "timestamp": "2021-09-14 00:15:00",
+    "current_power": 87.0,
+    "predicted_next_15min": 69.24885559082031,
+    "actual_next_15min": 72.0,
+    "error": 2.7511444091796875,
+    "abs_error": 2.7511444091796875,
+    "predicted_next_1hour": [
+      69.24884982407093,
+      67.69517023861408,
+      72.93566870689392,
+      81.12081202864647
+    ],
+    "context": {
+      "temp": 21.9,
+      "humidity": 80.0,
+      "production": 128.0,
+      "workers": 0.458781362,
+      "quarter": 1,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.32432432432432434,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 00:30:00",
+    "current_power": 72.0,
+    "predicted_next_15min": 68.15423583984375,
+    "actual_next_15min": 70.0,
+    "error": 1.84576416015625,
+    "abs_error": 1.84576416015625,
+    "predicted_next_1hour": [
+      68.15423145890236,
+      73.64743608236313,
+      81.78804025053978,
+      90.48953405022621
+    ],
+    "context": {
+      "temp": 21.9,
+      "humidity": 80.0,
+      "production": 128.0,
+      "workers": 0.458781362,
+      "quarter": 2,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.3153153153153153,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 00:45:00",
+    "current_power": 70.0,
+    "predicted_next_15min": 73.98649597167969,
+    "actual_next_15min": 70.0,
+    "error": -3.9864959716796875,
+    "abs_error": 3.9864959716796875,
+    "predicted_next_1hour": [
+      73.98649507761002,
+      82.20652800798416,
+      90.72514629364014,
+      98.70394665002823
+    ],
+    "context": {
+      "temp": 21.9,
+      "humidity": 80.0,
+      "production": 128.0,
+      "workers": 0.458781362,
+      "quarter": 3,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.3332725043769355,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 01:00:00",
+    "current_power": 70.0,
+    "predicted_next_15min": 81.60108184814453,
+    "actual_next_15min": 67.0,
+    "error": -14.601081848144531,
+    "abs_error": 14.601081848144531,
+    "predicted_next_1hour": [
+      81.60108107328415,
+      90.14422553777695,
+      98.38580811023712,
+      100.78127890825272
+    ],
+    "context": {
+      "temp": 21.9,
+      "humidity": 80.0,
+      "production": 128.0,
+      "workers": 0.458781362,
+      "quarter": 4,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.3675724407574078,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 01:15:00",
+    "current_power": 67.0,
+    "predicted_next_15min": 88.3047866821289,
+    "actual_next_15min": 98.0,
+    "error": 9.695213317871094,
+    "abs_error": 9.695213317871094,
+    "predicted_next_1hour": [
+      88.30478632450104,
+      96.5620259642601,
+      99.50455033779144,
+      101.28191182017326
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 45.0,
+      "workers": 0.102272727,
+      "quarter": 5,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.44144144144144143,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 01:30:00",
+    "current_power": 98.0,
+    "predicted_next_15min": 97.51497650146484,
+    "actual_next_15min": 116.0,
+    "error": 18.485023498535156,
+    "abs_error": 18.485023498535156,
+    "predicted_next_1hour": [
+      97.5149775147438,
+      100.55348914861679,
+      101.97877231240273,
+      103.7228353023529
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 45.0,
+      "workers": 0.102272727,
+      "quarter": 6,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5225225225225225,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 01:45:00",
+    "current_power": 116.0,
+    "predicted_next_15min": 101.58733367919922,
+    "actual_next_15min": 113.0,
+    "error": 11.412666320800781,
+    "abs_error": 11.412666320800781,
+    "predicted_next_1hour": [
+      101.58733958005905,
+      103.03616279363632,
+      104.59355700016022,
+      106.12278300523758
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 45.0,
+      "workers": 0.102272727,
+      "quarter": 7,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.509009009009009,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 02:00:00",
+    "current_power": 113.0,
+    "predicted_next_15min": 103.69290924072266,
+    "actual_next_15min": 113.0,
+    "error": 9.307090759277344,
+    "abs_error": 9.307090759277344,
+    "predicted_next_1hour": [
+      103.69291263818741,
+      105.29586237668991,
+      106.70527672767639,
+      106.67224442958832
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 45.0,
+      "workers": 0.102272727,
+      "quarter": 8,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.509009009009009,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 02:15:00",
+    "current_power": 113.0,
+    "predicted_next_15min": 105.5335922241211,
+    "actual_next_15min": 115.0,
+    "error": 9.466407775878906,
+    "abs_error": 9.466407775878906,
+    "predicted_next_1hour": [
+      105.53359812498093,
+      106.98576086759567,
+      106.8561242222786,
+      106.64458441734314
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 80.0,
+      "production": 479.0,
+      "workers": 1.073991031,
+      "quarter": 9,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5180180180180181,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 02:30:00",
+    "current_power": 115.0,
+    "predicted_next_15min": 107.2308349609375,
+    "actual_next_15min": 111.0,
+    "error": 3.7691650390625,
+    "abs_error": 3.7691650390625,
+    "predicted_next_1hour": [
+      107.23082906007767,
+      107.14204114675522,
+      106.87376564741135,
+      107.03673708438873
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 80.0,
+      "production": 479.0,
+      "workers": 1.073991031,
+      "quarter": 10,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 02:45:00",
+    "current_power": 111.0,
+    "predicted_next_15min": 107.23377990722656,
+    "actual_next_15min": 110.0,
+    "error": 2.7662200927734375,
+    "abs_error": 2.7662200927734375,
+    "predicted_next_1hour": [
+      107.23376929759979,
+      106.97725474834442,
+      107.12188297510147,
+      107.11498612165451
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 80.0,
+      "production": 479.0,
+      "workers": 1.073991031,
+      "quarter": 11,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4954954954954955,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 03:00:00",
+    "current_power": 110.0,
+    "predicted_next_15min": 107.03364562988281,
+    "actual_next_15min": 110.0,
+    "error": 2.9663543701171875,
+    "abs_error": 2.9663543701171875,
+    "predicted_next_1hour": [
+      107.03365769982338,
+      107.18495893478394,
+      107.16223561763763,
+      107.01648211479187
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 80.0,
+      "production": 479.0,
+      "workers": 1.073991031,
+      "quarter": 12,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4954954954954955,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 03:15:00",
+    "current_power": 110.0,
+    "predicted_next_15min": 107.26067352294922,
+    "actual_next_15min": 97.0,
+    "error": -10.260673522949219,
+    "abs_error": 10.260673522949219,
+    "predicted_next_1hour": [
+      107.26067912578583,
+      107.25016444921494,
+      107.08940121531487,
+      107.47832325100899
+    ],
+    "context": {
+      "temp": 22.5,
+      "humidity": 81.0,
+      "production": 93.0,
+      "workers": 0.221957041,
+      "quarter": 13,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.48315618704031177,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 03:30:00",
+    "current_power": 97.0,
+    "predicted_next_15min": 106.97563934326172,
+    "actual_next_15min": 105.0,
+    "error": -1.9756393432617188,
+    "abs_error": 1.9756393432617188,
+    "predicted_next_1hour": [
+      106.97564548254013,
+      106.78333216905594,
+      107.2283970117569,
+      107.23070806264877
+    ],
+    "context": {
+      "temp": 22.5,
+      "humidity": 81.0,
+      "production": 93.0,
+      "workers": 0.221957041,
+      "quarter": 14,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4818722492939717,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 03:45:00",
+    "current_power": 105.0,
+    "predicted_next_15min": 106.7282485961914,
+    "actual_next_15min": 103.0,
+    "error": -3.7282485961914062,
+    "abs_error": 3.7282485961914062,
+    "predicted_next_1hour": [
+      106.72825413942337,
+      107.16731145977974,
+      107.1803247332573,
+      106.07564240694046
+    ],
+    "context": {
+      "temp": 22.5,
+      "humidity": 81.0,
+      "production": 93.0,
+      "workers": 0.221957041,
+      "quarter": 15,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.48075787655942076,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 04:00:00",
+    "current_power": 103.0,
+    "predicted_next_15min": 107.06918334960938,
+    "actual_next_15min": 114.0,
+    "error": 6.930816650390625,
+    "abs_error": 6.930816650390625,
+    "predicted_next_1hour": [
+      107.06918859481812,
+      107.06679284572601,
+      105.99220257997513,
+      103.13580417633057
+    ],
+    "context": {
+      "temp": 22.5,
+      "humidity": 81.0,
+      "production": 93.0,
+      "workers": 0.221957041,
+      "quarter": 16,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5135135135135135,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 04:15:00",
+    "current_power": 114.0,
+    "predicted_next_15min": 107.2984619140625,
+    "actual_next_15min": 114.0,
+    "error": 6.7015380859375,
+    "abs_error": 6.7015380859375,
+    "predicted_next_1hour": [
+      107.29846057295799,
+      106.26127061247826,
+      103.36479181051254,
+      98.29899245500565
+    ],
+    "context": {
+      "temp": 21.1,
+      "humidity": 94.0,
+      "production": 255.0,
+      "workers": 0.574324324,
+      "quarter": 17,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5135135135135135,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 04:30:00",
+    "current_power": 114.0,
+    "predicted_next_15min": 106.4658203125,
+    "actual_next_15min": 115.0,
+    "error": 8.5341796875,
+    "abs_error": 8.5341796875,
+    "predicted_next_1hour": [
+      106.46582886576653,
+      103.59640508890152,
+      98.46696108579636,
+      94.47045230865479
+    ],
+    "context": {
+      "temp": 21.1,
+      "humidity": 94.0,
+      "production": 255.0,
+      "workers": 0.574324324,
+      "quarter": 18,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5180180180180181,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 04:45:00",
+    "current_power": 115.0,
+    "predicted_next_15min": 103.82166290283203,
+    "actual_next_15min": 110.0,
+    "error": 6.178337097167969,
+    "abs_error": 6.178337097167969,
+    "predicted_next_1hour": [
+      103.82165995240211,
+      98.74956268072128,
+      94.67573049664497,
+      94.67446002364159
+    ],
+    "context": {
+      "temp": 21.1,
+      "humidity": 94.0,
+      "production": 255.0,
+      "workers": 0.574324324,
+      "quarter": 19,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4954954954954955,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 05:00:00",
+    "current_power": 110.0,
+    "predicted_next_15min": 99.00506591796875,
+    "actual_next_15min": 105.0,
+    "error": 5.99493408203125,
+    "abs_error": 5.99493408203125,
+    "predicted_next_1hour": [
+      99.0050548017025,
+      94.97178700566292,
+      94.86175799369812,
+      97.40518444776535
+    ],
+    "context": {
+      "temp": 21.1,
+      "humidity": 94.0,
+      "production": 255.0,
+      "workers": 0.574324324,
+      "quarter": 20,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.47297297297297297,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 05:15:00",
+    "current_power": 105.0,
+    "predicted_next_15min": 95.15702056884766,
+    "actual_next_15min": 84.0,
+    "error": -11.157020568847656,
+    "abs_error": 11.157020568847656,
+    "predicted_next_1hour": [
+      95.15700986981392,
+      95.1308199763298,
+      97.5859606564045,
+      103.22593516111374
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 85.0,
+      "production": 76.0,
+      "workers": 0.203753351,
+      "quarter": 21,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.42863522778760205,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 05:30:00",
+    "current_power": 84.0,
+    "predicted_next_15min": 94.22553253173828,
+    "actual_next_15min": 74.0,
+    "error": -20.22553253173828,
+    "abs_error": 20.22553253173828,
+    "predicted_next_1hour": [
+      94.22552931308746,
+      96.55068850517273,
+      102.4819945693016,
+      107.5074352324009
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 85.0,
+      "production": 76.0,
+      "workers": 0.203753351,
+      "quarter": 22,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4244393357285508,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 05:45:00",
+    "current_power": 74.0,
+    "predicted_next_15min": 94.87149047851562,
+    "actual_next_15min": 100.0,
+    "error": 5.128509521484375,
+    "abs_error": 5.128509521484375,
+    "predicted_next_1hour": [
+      94.87149223685265,
+      100.66081991791725,
+      106.31758886575699,
+      109.72888147830963
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 85.0,
+      "production": 76.0,
+      "workers": 0.203753351,
+      "quarter": 23,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.45045045045045046,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 06:00:00",
+    "current_power": 100.0,
+    "predicted_next_15min": 101.02386474609375,
+    "actual_next_15min": 115.0,
+    "error": 13.97613525390625,
+    "abs_error": 13.97613525390625,
+    "predicted_next_1hour": [
+      101.02386665344238,
+      106.71415793895721,
+      109.86488863825798,
+      110.66294533014297
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 85.0,
+      "production": 76.0,
+      "workers": 0.203753351,
+      "quarter": 24,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5180180180180181,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 06:15:00",
+    "current_power": 115.0,
+    "predicted_next_15min": 107.630615234375,
+    "actual_next_15min": 111.0,
+    "error": 3.369384765625,
+    "abs_error": 3.369384765625,
+    "predicted_next_1hour": [
+      107.63060456514359,
+      111.00395238399506,
+      111.10857281088829,
+      110.10120266675949
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 85.0,
+      "production": 1228.0,
+      "workers": 2.842592593,
+      "quarter": 25,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 06:30:00",
+    "current_power": 111.0,
+    "predicted_next_15min": 111.3392562866211,
+    "actual_next_15min": 109.0,
+    "error": -2.3392562866210938,
+    "abs_error": 2.3392562866210938,
+    "predicted_next_1hour": [
+      111.33927255868912,
+      111.50289738178253,
+      110.36490446329117,
+      110.754679530859
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 85.0,
+      "production": 1228.0,
+      "workers": 2.842592593,
+      "quarter": 26,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5015281814712662,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 06:45:00",
+    "current_power": 109.0,
+    "predicted_next_15min": 111.32901763916016,
+    "actual_next_15min": 100.0,
+    "error": -11.329017639160156,
+    "abs_error": 11.329017639160156,
+    "predicted_next_1hour": [
+      111.32903012633324,
+      110.15562731027603,
+      110.68925017118454,
+      117.16664183139801
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 85.0,
+      "production": 1228.0,
+      "workers": 2.842592593,
+      "quarter": 27,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5014820614376584,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 07:00:00",
+    "current_power": 100.0,
+    "predicted_next_15min": 109.47391510009766,
+    "actual_next_15min": 112.0,
+    "error": 2.5260848999023438,
+    "abs_error": 2.5260848999023438,
+    "predicted_next_1hour": [
+      109.4739156961441,
+      109.85683625936508,
+      116.85880017280579,
+      131.64744472503662
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 85.0,
+      "production": 1228.0,
+      "workers": 2.842592593,
+      "quarter": 28,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5045045045045045,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 07:15:00",
+    "current_power": 112.0,
+    "predicted_next_15min": 110.03632354736328,
+    "actual_next_15min": 115.0,
+    "error": 4.963676452636719,
+    "abs_error": 4.963676452636719,
+    "predicted_next_1hour": [
+      110.0363238453865,
+      117.08544045686722,
+      131.7387130856514,
+      147.72398591041565
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 83.0,
+      "production": 1110.0,
+      "workers": 1.982142857,
+      "quarter": 29,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5180180180180181,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 07:30:00",
+    "current_power": 115.0,
+    "predicted_next_15min": 117.48269653320312,
+    "actual_next_15min": 134.0,
+    "error": 16.517303466796875,
+    "abs_error": 16.517303466796875,
+    "predicted_next_1hour": [
+      117.48269921541214,
+      132.2168344259262,
+      147.96731173992157,
+      162.4835063815117
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 83.0,
+      "production": 1110.0,
+      "workers": 1.982142857,
+      "quarter": 30,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6036036036036037,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 07:45:00",
+    "current_power": 134.0,
+    "predicted_next_15min": 133.4834747314453,
+    "actual_next_15min": 155.0,
+    "error": 21.516525268554688,
+    "abs_error": 21.516525268554688,
+    "predicted_next_1hour": [
+      133.4834839105606,
+      149.42992866039276,
+      163.1969919204712,
+      169.45004224777222
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 83.0,
+      "production": 1110.0,
+      "workers": 1.982142857,
+      "quarter": 31,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6981981981981982,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 08:00:00",
+    "current_power": 155.0,
+    "predicted_next_15min": 150.95257568359375,
+    "actual_next_15min": 156.0,
+    "error": 5.04742431640625,
+    "abs_error": 5.04742431640625,
+    "predicted_next_1hour": [
+      150.9525724053383,
+      164.96486115455627,
+      170.40260660648346,
+      172.06266713142395
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 83.0,
+      "production": 1110.0,
+      "workers": 1.982142857,
+      "quarter": 32,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7027027027027027,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 08:15:00",
+    "current_power": 156.0,
+    "predicted_next_15min": 165.31048583984375,
+    "actual_next_15min": 162.0,
+    "error": -3.31048583984375,
+    "abs_error": 3.31048583984375,
+    "predicted_next_1hour": [
+      165.31047821044922,
+      170.79415428638458,
+      172.29319143295288,
+      171.33818292617798
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 432.0,
+      "workers": 0.622478386,
+      "quarter": 33,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7446418281074043,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 08:30:00",
+    "current_power": 162.0,
+    "predicted_next_15min": 170.6194610595703,
+    "actual_next_15min": 176.0,
+    "error": 5.3805389404296875,
+    "abs_error": 5.3805389404296875,
+    "predicted_next_1hour": [
+      170.61945819854736,
+      172.09548163414001,
+      171.21443885564804,
+      168.9311689734459
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 432.0,
+      "workers": 0.622478386,
+      "quarter": 34,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7927927927927928,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 08:45:00",
+    "current_power": 176.0,
+    "predicted_next_15min": 172.40147399902344,
+    "actual_next_15min": 184.0,
+    "error": 11.598526000976562,
+    "abs_error": 11.598526000976562,
+    "predicted_next_1hour": [
+      172.40148413181305,
+      171.5458629131317,
+      169.1480084657669,
+      169.33144056797028
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 432.0,
+      "workers": 0.622478386,
+      "quarter": 35,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.8288288288288288,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 09:00:00",
+    "current_power": 184.0,
+    "predicted_next_15min": 172.01194763183594,
+    "actual_next_15min": 172.0,
+    "error": -0.0119476318359375,
+    "abs_error": 0.0119476318359375,
+    "predicted_next_1hour": [
+      172.01194500923157,
+      169.67059636116028,
+      169.66321551799774,
+      168.03581219911575
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 81.0,
+      "production": 432.0,
+      "workers": 0.622478386,
+      "quarter": 36,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7748285929361979,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 09:15:00",
+    "current_power": 172.0,
+    "predicted_next_15min": 169.67018127441406,
+    "actual_next_15min": 162.0,
+    "error": -7.6701812744140625,
+    "abs_error": 7.6701812744140625,
+    "predicted_next_1hour": [
+      169.67018496990204,
+      169.66275572776794,
+      168.03548550605774,
+      163.03035426139832
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 95.0,
+      "production": 1672.0,
+      "workers": 2.521870287,
+      "quarter": 37,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.764280095830694,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 09:30:00",
+    "current_power": 162.0,
+    "predicted_next_15min": 169.43585205078125,
+    "actual_next_15min": 160.0,
+    "error": -9.43585205078125,
+    "abs_error": 9.43585205078125,
+    "predicted_next_1hour": [
+      169.43586134910583,
+      167.73761403560638,
+      162.78414869308472,
+      160.9399300813675
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 95.0,
+      "production": 1672.0,
+      "workers": 2.521870287,
+      "quarter": 38,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7632245587873029,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 09:45:00",
+    "current_power": 160.0,
+    "predicted_next_15min": 167.33145141601562,
+    "actual_next_15min": 163.0,
+    "error": -4.331451416015625,
+    "abs_error": 4.331451416015625,
+    "predicted_next_1hour": [
+      167.33144986629486,
+      162.33803117275238,
+      160.58938843011856,
+      165.21208310127258
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 95.0,
+      "production": 1672.0,
+      "workers": 2.521870287,
+      "quarter": 39,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.753745276648719,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 10:00:00",
+    "current_power": 163.0,
+    "predicted_next_15min": 162.2004852294922,
+    "actual_next_15min": 178.0,
+    "error": 15.799514770507812,
+    "abs_error": 15.799514770507812,
+    "predicted_next_1hour": [
+      162.20046919584274,
+      160.4281109571457,
+      165.06734597682953,
+      167.91073715686798
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 95.0,
+      "production": 1672.0,
+      "workers": 2.521870287,
+      "quarter": 40,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.8018018018018018,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 10:15:00",
+    "current_power": 178.0,
+    "predicted_next_15min": 160.88462829589844,
+    "actual_next_15min": 143.0,
+    "error": -17.884628295898438,
+    "abs_error": 17.884628295898438,
+    "predicted_next_1hour": [
+      160.88463425636292,
+      165.58117365837097,
+      168.33375626802444,
+      168.55095875263214
+    ],
+    "context": {
+      "temp": 21.2,
+      "humidity": 98.0,
+      "production": 840.0,
+      "workers": 1.379310345,
+      "quarter": 41,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7247055328644074,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 10:30:00",
+    "current_power": 143.0,
+    "predicted_next_15min": 165.14239501953125,
+    "actual_next_15min": 155.0,
+    "error": -10.14239501953125,
+    "abs_error": 10.14239501953125,
+    "predicted_next_1hour": [
+      165.14238858222961,
+      167.84427326917648,
+      168.1323560476303,
+      167.32491600513458
+    ],
+    "context": {
+      "temp": 21.2,
+      "humidity": 98.0,
+      "production": 840.0,
+      "workers": 1.379310345,
+      "quarter": 42,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7438846622501407,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 10:45:00",
+    "current_power": 155.0,
+    "predicted_next_15min": 167.6212615966797,
+    "actual_next_15min": 161.0,
+    "error": -6.6212615966796875,
+    "abs_error": 6.6212615966796875,
+    "predicted_next_1hour": [
+      167.62125080823898,
+      167.8733731508255,
+      167.17514538764954,
+      164.28946560621262
+    ],
+    "context": {
+      "temp": 21.2,
+      "humidity": 98.0,
+      "production": 840.0,
+      "workers": 1.379310345,
+      "quarter": 43,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7550507279129716,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 11:00:00",
+    "current_power": 161.0,
+    "predicted_next_15min": 167.68609619140625,
+    "actual_next_15min": 150.0,
+    "error": -17.68609619140625,
+    "abs_error": 17.68609619140625,
+    "predicted_next_1hour": [
+      167.6860933303833,
+      166.94955778121948,
+      164.0861052274704,
+      163.31866693496704
+    ],
+    "context": {
+      "temp": 21.2,
+      "humidity": 98.0,
+      "production": 840.0,
+      "workers": 1.379310345,
+      "quarter": 44,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7553427756369651,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 11:15:00",
+    "current_power": 150.0,
+    "predicted_next_15min": 166.3124237060547,
+    "actual_next_15min": 155.0,
+    "error": -11.312423706054688,
+    "abs_error": 11.312423706054688,
+    "predicted_next_1hour": [
+      166.312433719635,
+      163.38062971830368,
+      162.73115181922913,
+      156.27891552448273
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 98.0,
+      "production": 2099.0,
+      "workers": 3.091310751,
+      "quarter": 45,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.749155061738985,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 11:30:00",
+    "current_power": 155.0,
+    "predicted_next_15min": 163.0174102783203,
+    "actual_next_15min": 164.0,
+    "error": 0.9825897216796875,
+    "abs_error": 0.9825897216796875,
+    "predicted_next_1hour": [
+      163.01743173599243,
+      162.3138074874878,
+      155.87270295619965,
+      113.83732497692108
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 98.0,
+      "production": 2099.0,
+      "workers": 3.091310751,
+      "quarter": 46,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7387387387387387,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 11:45:00",
+    "current_power": 164.0,
+    "predicted_next_15min": 162.35104370117188,
+    "actual_next_15min": 180.0,
+    "error": 17.648956298828125,
+    "abs_error": 17.648956298828125,
+    "predicted_next_1hour": [
+      162.35105049610138,
+      155.91269260644913,
+      113.87267437577248,
+      89.09908604621887
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 98.0,
+      "production": 2099.0,
+      "workers": 3.091310751,
+      "quarter": 47,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.8108108108108109,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 12:00:00",
+    "current_power": 180.0,
+    "predicted_next_15min": 156.40037536621094,
+    "actual_next_15min": 180.0,
+    "error": 23.599624633789062,
+    "abs_error": 23.599624633789062,
+    "predicted_next_1hour": [
+      156.40037274360657,
+      114.3960003554821,
+      89.27276575565338,
+      91.19725406169891
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 98.0,
+      "production": 2099.0,
+      "workers": 3.091310751,
+      "quarter": 48,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.8108108108108109,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 12:15:00",
+    "current_power": 180.0,
+    "predicted_next_15min": 115.0549087524414,
+    "actual_next_15min": 135.0,
+    "error": 19.945091247558594,
+    "abs_error": 19.945091247558594,
+    "predicted_next_1hour": [
+      115.0549039542675,
+      90.03849798440933,
+      91.61941409111023,
+      122.80219388008118
+    ],
+    "context": {
+      "temp": 21.0,
+      "humidity": 98.0,
+      "production": 2791.0,
+      "workers": 5.913135593,
+      "quarter": 49,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6081081081081081,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 12:30:00",
+    "current_power": 135.0,
+    "predicted_next_15min": 90.99817657470703,
+    "actual_next_15min": 111.0,
+    "error": 20.00182342529297,
+    "abs_error": 20.00182342529297,
+    "predicted_next_1hour": [
+      90.99818304181099,
+      92.6405718922615,
+      123.85095119476318,
+      158.455501973629
+    ],
+    "context": {
+      "temp": 21.0,
+      "humidity": 98.0,
+      "production": 2791.0,
+      "workers": 5.913135593,
+      "quarter": 50,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 12:45:00",
+    "current_power": 111.0,
+    "predicted_next_15min": 93.37842559814453,
+    "actual_next_15min": 103.0,
+    "error": 9.621574401855469,
+    "abs_error": 9.621574401855469,
+    "predicted_next_1hour": [
+      93.37842631340027,
+      124.77047115564346,
+      159.17955058813095,
+      165.04026675224304
+    ],
+    "context": {
+      "temp": 21.0,
+      "humidity": 98.0,
+      "production": 2791.0,
+      "workers": 5.913135593,
+      "quarter": 51,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.46396396396396394,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 13:00:00",
+    "current_power": 103.0,
+    "predicted_next_15min": 125.01953887939453,
+    "actual_next_15min": 123.0,
+    "error": -2.0195388793945312,
+    "abs_error": 2.0195388793945312,
+    "predicted_next_1hour": [
+      125.01954436302185,
+      159.43605303764343,
+      165.15453672409058,
+      169.47012782096863
+    ],
+    "context": {
+      "temp": 21.0,
+      "humidity": 98.0,
+      "production": 2791.0,
+      "workers": 5.913135593,
+      "quarter": 52,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5631510760333087,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 13:15:00",
+    "current_power": 123.0,
+    "predicted_next_15min": 159.3771514892578,
+    "actual_next_15min": 149.0,
+    "error": -10.377151489257812,
+    "abs_error": 10.377151489257812,
+    "predicted_next_1hour": [
+      159.3771514892578,
+      165.0925134420395,
+      169.42736732959747,
+      169.52193892002106
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 97.0,
+      "production": 1109.0,
+      "workers": 1.700920245,
+      "quarter": 53,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7179150967984587,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 13:30:00",
+    "current_power": 149.0,
+    "predicted_next_15min": 164.7958526611328,
+    "actual_next_15min": 165.0,
+    "error": 0.2041473388671875,
+    "abs_error": 0.2041473388671875,
+    "predicted_next_1hour": [
+      164.79585194587708,
+      169.10205364227295,
+      169.21913075447083,
+      169.3936574459076
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 97.0,
+      "production": 1109.0,
+      "workers": 1.700920245,
+      "quarter": 54,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7432432432432432,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 13:45:00",
+    "current_power": 165.0,
+    "predicted_next_15min": 169.1078338623047,
+    "actual_next_15min": 165.0,
+    "error": -4.1078338623046875,
+    "abs_error": 4.1078338623046875,
+    "predicted_next_1hour": [
+      169.10783731937408,
+      169.22525322437286,
+      169.40020340681076,
+      168.99321645498276
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 97.0,
+      "production": 1109.0,
+      "workers": 1.700920245,
+      "quarter": 55,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7617469993797509,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 14:00:00",
+    "current_power": 165.0,
+    "predicted_next_15min": 169.10565185546875,
+    "actual_next_15min": 173.0,
+    "error": 3.89434814453125,
+    "abs_error": 3.89434814453125,
+    "predicted_next_1hour": [
+      169.10567146539688,
+      169.272611618042,
+      168.8673186302185,
+      167.15619719028473
+    ],
+    "context": {
+      "temp": 21.3,
+      "humidity": 97.0,
+      "production": 1109.0,
+      "workers": 1.700920245,
+      "quarter": 56,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7792792792792793,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 14:15:00",
+    "current_power": 173.0,
+    "predicted_next_15min": 169.3660125732422,
+    "actual_next_15min": 161.0,
+    "error": -8.366012573242188,
+    "abs_error": 8.366012573242188,
+    "predicted_next_1hour": [
+      169.3660095334053,
+      168.9734091758728,
+      167.24365413188934,
+      163.6418752670288
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 92.0,
+      "production": 1023.0,
+      "workers": 1.616113744,
+      "quarter": 57,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.762909966546136,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 14:30:00",
+    "current_power": 161.0,
+    "predicted_next_15min": 168.62391662597656,
+    "actual_next_15min": 162.0,
+    "error": -6.6239166259765625,
+    "abs_error": 6.6239166259765625,
+    "predicted_next_1hour": [
+      168.62389600276947,
+      166.86865890026093,
+      163.2886837720871,
+      158.61783212423325
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 92.0,
+      "production": 1023.0,
+      "workers": 1.616113744,
+      "quarter": 58,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7595671920089034,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 14:45:00",
+    "current_power": 162.0,
+    "predicted_next_15min": 166.60580444335938,
+    "actual_next_15min": 154.0,
+    "error": -12.605804443359375,
+    "abs_error": 12.605804443359375,
+    "predicted_next_1hour": [
+      166.6058040857315,
+      163.01007509231567,
+      158.36384642124176,
+      161.43241381645203
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 92.0,
+      "production": 1023.0,
+      "workers": 1.616113744,
+      "quarter": 59,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7504765965917088,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 15:00:00",
+    "current_power": 154.0,
+    "predicted_next_15min": 162.6280517578125,
+    "actual_next_15min": 156.0,
+    "error": -6.6280517578125,
+    "abs_error": 6.6280517578125,
+    "predicted_next_1hour": [
+      162.6280620098114,
+      157.95700466632843,
+      161.12645971775055,
+      162.81172400712967
+    ],
+    "context": {
+      "temp": 21.5,
+      "humidity": 92.0,
+      "production": 1023.0,
+      "workers": 1.616113744,
+      "quarter": 60,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7325587917018581,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 15:15:00",
+    "current_power": 156.0,
+    "predicted_next_15min": 157.7747039794922,
+    "actual_next_15min": 132.0,
+    "error": -25.774703979492188,
+    "abs_error": 25.774703979492188,
+    "predicted_next_1hour": [
+      157.77469784021378,
+      160.93402540683746,
+      162.66638189554214,
+      162.4621261358261
+    ],
+    "context": {
+      "temp": 20.6,
+      "humidity": 98.0,
+      "production": 1178.0,
+      "workers": 1.829192547,
+      "quarter": 61,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "WATCH",
+      "reason": "이 시간대 비정상 spike (qp99=155, level=158)",
+      "ratio_to_peak": 0.7106968647724873,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "watch"
+  },
+  {
+    "timestamp": "2021-09-14 15:30:00",
+    "current_power": 132.0,
+    "predicted_next_15min": 159.99790954589844,
+    "actual_next_15min": 169.0,
+    "error": 9.002090454101562,
+    "abs_error": 9.002090454101562,
+    "predicted_next_1hour": [
+      159.9979166984558,
+      161.65630745887756,
+      161.55320554971695,
+      161.29823976755142
+    ],
+    "context": {
+      "temp": 20.6,
+      "humidity": 98.0,
+      "production": 1178.0,
+      "workers": 1.829192547,
+      "quarter": 62,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7612612612612613,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 15:45:00",
+    "current_power": 169.0,
+    "predicted_next_15min": 161.92745971679688,
+    "actual_next_15min": 175.0,
+    "error": 13.072540283203125,
+    "abs_error": 13.072540283203125,
+    "predicted_next_1hour": [
+      161.92745059728622,
+      161.8450150489807,
+      161.549043238163,
+      161.5168337225914
+    ],
+    "context": {
+      "temp": 20.6,
+      "humidity": 98.0,
+      "production": 1178.0,
+      "workers": 1.829192547,
+      "quarter": 63,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7882882882882883,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 16:00:00",
+    "current_power": 175.0,
+    "predicted_next_15min": 162.20785522460938,
+    "actual_next_15min": 168.0,
+    "error": 5.792144775390625,
+    "abs_error": 5.792144775390625,
+    "predicted_next_1hour": [
+      162.20787423849106,
+      161.93248409032822,
+      161.88073348999023,
+      163.15602219104767
+    ],
+    "context": {
+      "temp": 20.6,
+      "humidity": 98.0,
+      "production": 1178.0,
+      "workers": 1.829192547,
+      "quarter": 64,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7567567567567568,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 16:15:00",
+    "current_power": 168.0,
+    "predicted_next_15min": 162.11248779296875,
+    "actual_next_15min": 164.0,
+    "error": 1.88751220703125,
+    "abs_error": 1.88751220703125,
+    "predicted_next_1hour": [
+      162.112479865551,
+      162.07120764255524,
+      163.3337916135788,
+      158.0879117846489
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 95.0,
+      "production": 1395.0,
+      "workers": 2.186520376,
+      "quarter": 65,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7387387387387387,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 16:30:00",
+    "current_power": 164.0,
+    "predicted_next_15min": 162.11550903320312,
+    "actual_next_15min": 165.0,
+    "error": 2.884490966796875,
+    "abs_error": 2.884490966796875,
+    "predicted_next_1hour": [
+      162.11551690101624,
+      163.38257777690887,
+      158.12613487243652,
+      113.8314808011055
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 95.0,
+      "production": 1395.0,
+      "workers": 2.186520376,
+      "quarter": 66,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7432432432432432,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 16:45:00",
+    "current_power": 165.0,
+    "predicted_next_15min": 163.4622802734375,
+    "actual_next_15min": 156.0,
+    "error": -7.4622802734375,
+    "abs_error": 7.4622802734375,
+    "predicted_next_1hour": [
+      163.46229088306427,
+      158.212732732296,
+      113.8890392780304,
+      119.02092742919922
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 95.0,
+      "production": 1395.0,
+      "workers": 2.186520376,
+      "quarter": 67,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.736316577808277,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 17:00:00",
+    "current_power": 156.0,
+    "predicted_next_15min": 157.92391967773438,
+    "actual_next_15min": 153.0,
+    "error": -4.923919677734375,
+    "abs_error": 4.923919677734375,
+    "predicted_next_1hour": [
+      157.9239239692688,
+      113.62398836016655,
+      118.72033956646919,
+      147.0477917790413
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 95.0,
+      "production": 1395.0,
+      "workers": 2.186520376,
+      "quarter": 68,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7113690075573621,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 17:15:00",
+    "current_power": 153.0,
+    "predicted_next_15min": 113.4480972290039,
+    "actual_next_15min": 117.0,
+    "error": 3.5519027709960938,
+    "abs_error": 3.5519027709960938,
+    "predicted_next_1hour": [
+      113.44810044765472,
+      118.52028846740723,
+      146.85563576221466,
+      152.1694314479828
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 91.0,
+      "production": 230.0,
+      "workers": 0.469387755,
+      "quarter": 69,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.527027027027027,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 17:30:00",
+    "current_power": 117.0,
+    "predicted_next_15min": 118.58106231689453,
+    "actual_next_15min": 94.0,
+    "error": -24.58106231689453,
+    "abs_error": 24.58106231689453,
+    "predicted_next_1hour": [
+      118.5810654759407,
+      146.91741704940796,
+      152.19972920417786,
+      152.74419343471527
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 91.0,
+      "production": 230.0,
+      "workers": 0.469387755,
+      "quarter": 70,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5341489293553807,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 17:45:00",
+    "current_power": 94.0,
+    "predicted_next_15min": 146.37669372558594,
+    "actual_next_15min": 133.0,
+    "error": -13.376693725585938,
+    "abs_error": 13.376693725585938,
+    "predicted_next_1hour": [
+      146.37670373916626,
+      151.6700508594513,
+      152.48239129781723,
+      151.14586579799652
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 91.0,
+      "production": 230.0,
+      "workers": 0.469387755,
+      "quarter": 71,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6593544762413781,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 18:00:00",
+    "current_power": 133.0,
+    "predicted_next_15min": 151.2357177734375,
+    "actual_next_15min": 146.0,
+    "error": -5.2357177734375,
+    "abs_error": 5.2357177734375,
+    "predicted_next_1hour": [
+      151.23571848869324,
+      152.03552359342575,
+      150.8300141096115,
+      149.66289710998535
+    ],
+    "context": {
+      "temp": 21.8,
+      "humidity": 91.0,
+      "production": 230.0,
+      "workers": 0.469387755,
+      "quarter": 72,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6812419719524212,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 18:15:00",
+    "current_power": 146.0,
+    "predicted_next_15min": 151.87281799316406,
+    "actual_next_15min": 158.0,
+    "error": 6.1271820068359375,
+    "abs_error": 6.1271820068359375,
+    "predicted_next_1hour": [
+      151.87281835079193,
+      150.64212930202484,
+      149.5624692440033,
+      148.13953948020935
+    ],
+    "context": {
+      "temp": 20.9,
+      "humidity": 94.0,
+      "production": 973.0,
+      "workers": 1.539556962,
+      "quarter": 73,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7117117117117117,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 18:30:00",
+    "current_power": 158.0,
+    "predicted_next_15min": 151.02125549316406,
+    "actual_next_15min": 164.0,
+    "error": 12.978744506835938,
+    "abs_error": 12.978744506835938,
+    "predicted_next_1hour": [
+      151.02126264572144,
+      150.017080783844,
+      148.60827142000198,
+      146.62883818149567
+    ],
+    "context": {
+      "temp": 20.9,
+      "humidity": 94.0,
+      "production": 973.0,
+      "workers": 1.539556962,
+      "quarter": 74,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7387387387387387,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 18:45:00",
+    "current_power": 164.0,
+    "predicted_next_15min": 151.04620361328125,
+    "actual_next_15min": 147.0,
+    "error": -4.04620361328125,
+    "abs_error": 4.04620361328125,
+    "predicted_next_1hour": [
+      151.04622441530228,
+      149.7404927611351,
+      147.8265796303749,
+      144.39866197109222
+    ],
+    "context": {
+      "temp": 20.9,
+      "humidity": 94.0,
+      "production": 973.0,
+      "workers": 1.539556962,
+      "quarter": 75,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.68038830456433,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 19:00:00",
+    "current_power": 147.0,
+    "predicted_next_15min": 149.49400329589844,
+    "actual_next_15min": 163.0,
+    "error": 13.505996704101562,
+    "abs_error": 13.505996704101562,
+    "predicted_next_1hour": [
+      149.49400889873505,
+      147.54856383800507,
+      144.14120364189148,
+      137.577601313591
+    ],
+    "context": {
+      "temp": 20.9,
+      "humidity": 94.0,
+      "production": 973.0,
+      "workers": 1.539556962,
+      "quarter": 76,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7342342342342343,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 19:15:00",
+    "current_power": 163.0,
+    "predicted_next_15min": 148.28013610839844,
+    "actual_next_15min": 152.0,
+    "error": 3.7198638916015625,
+    "abs_error": 3.7198638916015625,
+    "predicted_next_1hour": [
+      148.28013849258423,
+      144.99653446674347,
+      138.3793786764145,
+      129.56519997119904
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 85.0,
+      "production": 1497.0,
+      "workers": 2.442088091,
+      "quarter": 77,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6846846846846847,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 19:30:00",
+    "current_power": 152.0,
+    "predicted_next_15min": 145.21751403808594,
+    "actual_next_15min": 151.0,
+    "error": 5.7824859619140625,
+    "abs_error": 5.7824859619140625,
+    "predicted_next_1hour": [
+      145.21752417087555,
+      138.6211315393448,
+      129.7625588774681,
+      123.68837904930115
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 85.0,
+      "production": 1497.0,
+      "workers": 2.442088091,
+      "quarter": 78,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6801801801801802,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 19:45:00",
+    "current_power": 151.0,
+    "predicted_next_15min": 138.9184112548828,
+    "actual_next_15min": 171.0,
+    "error": 32.08158874511719,
+    "abs_error": 32.08158874511719,
+    "predicted_next_1hour": [
+      138.91843432188034,
+      130.09570109844208,
+      123.99087262153625,
+      122.68297511339188
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 85.0,
+      "production": 1497.0,
+      "workers": 2.442088091,
+      "quarter": 79,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.7702702702702703,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 20:00:00",
+    "current_power": 171.0,
+    "predicted_next_15min": 133.21868896484375,
+    "actual_next_15min": 139.0,
+    "error": 5.78131103515625,
+    "abs_error": 5.78131103515625,
+    "predicted_next_1hour": [
+      133.21869313716888,
+      127.41434967517853,
+      126.01561939716339,
+      124.91075557470322
+    ],
+    "context": {
+      "temp": 21.7,
+      "humidity": 85.0,
+      "production": 1497.0,
+      "workers": 2.442088091,
+      "quarter": 80,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6261261261261262,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 20:15:00",
+    "current_power": 139.0,
+    "predicted_next_15min": 127.8072280883789,
+    "actual_next_15min": 124.0,
+    "error": -3.8072280883789062,
+    "abs_error": 3.8072280883789062,
+    "predicted_next_1hour": [
+      127.80722832679749,
+      126.46598392724991,
+      125.3513435125351,
+      123.70560908317566
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 78.0,
+      "production": 45.0,
+      "workers": 0.087890625,
+      "quarter": 81,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5757082346323374,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 20:30:00",
+    "current_power": 124.0,
+    "predicted_next_15min": 126.14712524414062,
+    "actual_next_15min": 130.0,
+    "error": 3.852874755859375,
+    "abs_error": 3.852874755859375,
+    "predicted_next_1hour": [
+      126.14713150262833,
+      124.9960829615593,
+      123.36190378665924,
+      123.00660693645477
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 78.0,
+      "production": 45.0,
+      "workers": 0.087890625,
+      "quarter": 82,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5855855855855856,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 20:45:00",
+    "current_power": 130.0,
+    "predicted_next_15min": 125.3235855102539,
+    "actual_next_15min": 128.0,
+    "error": 2.6764144897460938,
+    "abs_error": 2.6764144897460938,
+    "predicted_next_1hour": [
+      125.3235867023468,
+      123.73578584194183,
+      123.34307658672333,
+      121.42181891202927
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 78.0,
+      "production": 45.0,
+      "workers": 0.087890625,
+      "quarter": 83,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5765765765765766,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 21:00:00",
+    "current_power": 128.0,
+    "predicted_next_15min": 123.94021606445312,
+    "actual_next_15min": 130.0,
+    "error": 6.059783935546875,
+    "abs_error": 6.059783935546875,
+    "predicted_next_1hour": [
+      123.94022309780121,
+      123.57022505998611,
+      121.64349830150604,
+      119.02569472789764
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 78.0,
+      "production": 45.0,
+      "workers": 0.087890625,
+      "quarter": 84,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5855855855855856,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 21:15:00",
+    "current_power": 130.0,
+    "predicted_next_15min": 124.03295135498047,
+    "actual_next_15min": 134.0,
+    "error": 9.967048645019531,
+    "abs_error": 9.967048645019531,
+    "predicted_next_1hour": [
+      124.0329555273056,
+      122.14512944221497,
+      119.41276550292969,
+      115.61730605363846
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 76.0,
+      "production": 149.0,
+      "workers": 0.290448343,
+      "quarter": 85,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.6036036036036037,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 21:30:00",
+    "current_power": 134.0,
+    "predicted_next_15min": 122.74553680419922,
+    "actual_next_15min": 130.0,
+    "error": 7.254463195800781,
+    "abs_error": 7.254463195800781,
+    "predicted_next_1hour": [
+      122.7455307841301,
+      119.99884074926376,
+      116.12574329972267,
+      112.9947170317173
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 76.0,
+      "production": 149.0,
+      "workers": 0.290448343,
+      "quarter": 86,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5855855855855856,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 21:45:00",
+    "current_power": 130.0,
+    "predicted_next_15min": 120.39347076416016,
+    "actual_next_15min": 125.0,
+    "error": 4.606529235839844,
+    "abs_error": 4.606529235839844,
+    "predicted_next_1hour": [
+      120.39347386360168,
+      116.56311875581741,
+      113.34311097860336,
+      114.39842635393143
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 76.0,
+      "production": 149.0,
+      "workers": 0.290448343,
+      "quarter": 87,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5630630630630631,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 22:00:00",
+    "current_power": 125.0,
+    "predicted_next_15min": 116.88510131835938,
+    "actual_next_15min": 124.0,
+    "error": 7.114898681640625,
+    "abs_error": 7.114898681640625,
+    "predicted_next_1hour": [
+      116.88510501384735,
+      113.65981569886208,
+      114.71398764848709,
+      115.90618741512299
+    ],
+    "context": {
+      "temp": 22.2,
+      "humidity": 76.0,
+      "production": 149.0,
+      "workers": 0.290448343,
+      "quarter": 88,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5585585585585585,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 22:15:00",
+    "current_power": 124.0,
+    "predicted_next_15min": 114.10314178466797,
+    "actual_next_15min": 100.0,
+    "error": -14.103141784667969,
+    "abs_error": 14.103141784667969,
+    "predicted_next_1hour": [
+      114.1031442284584,
+      115.23656344413757,
+      116.33841443061829,
+      116.46715569496155
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 66.0,
+      "workers": 0.148984199,
+      "quarter": 89,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.513978116147153,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 22:30:00",
+    "current_power": 100.0,
+    "predicted_next_15min": 114.52079010009766,
+    "actual_next_15min": 109.0,
+    "error": -5.520790100097656,
+    "abs_error": 5.520790100097656,
+    "predicted_next_1hour": [
+      114.52079105377197,
+      115.54604461789131,
+      115.81871837377548,
+      116.52120524644852
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 66.0,
+      "workers": 0.148984199,
+      "quarter": 90,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5158594148653047,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 22:45:00",
+    "current_power": 109.0,
+    "predicted_next_15min": 115.21887969970703,
+    "actual_next_15min": 120.0,
+    "error": 4.781120300292969,
+    "abs_error": 4.781120300292969,
+    "predicted_next_1hour": [
+      115.21888571977615,
+      115.47084471583366,
+      116.25188916921616,
+      117.72976386547089
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 66.0,
+      "workers": 0.148984199,
+      "quarter": 91,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5405405405405406,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 23:00:00",
+    "current_power": 120.0,
+    "predicted_next_15min": 115.7565689086914,
+    "actual_next_15min": 114.0,
+    "error": -1.7565689086914062,
+    "abs_error": 1.7565689086914062,
+    "predicted_next_1hour": [
+      115.7565740942955,
+      116.563983887434,
+      118.04053971171379,
+      106.1973295211792
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 66.0,
+      "workers": 0.148984199,
+      "quarter": 92,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5214259860751865,
+      "bill_peak_baseline": 222.0,
+      "trigger": "forecast"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 23:15:00",
+    "current_power": 114.0,
+    "predicted_next_15min": 116.43368530273438,
+    "actual_next_15min": 117.0,
+    "error": 0.566314697265625,
+    "abs_error": 0.566314697265625,
+    "predicted_next_1hour": [
+      116.43368780612946,
+      117.87513017654419,
+      106.06573271751404,
+      76.56784212589264
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 405.0,
+      "workers": 0.922551253,
+      "quarter": 93,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.527027027027027,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 23:30:00",
+    "current_power": 117.0,
+    "predicted_next_15min": 117.93089294433594,
+    "actual_next_15min": 119.0,
+    "error": 1.0691070556640625,
+    "abs_error": 1.0691070556640625,
+    "predicted_next_1hour": [
+      117.93089184165001,
+      106.11957657337189,
+      76.63943630456924,
+      65.50379487872124
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 405.0,
+      "workers": 0.922551253,
+      "quarter": 94,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.536036036036036,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-14 23:45:00",
+    "current_power": 119.0,
+    "predicted_next_15min": 106.20321655273438,
+    "actual_next_15min": 112.0,
+    "error": 5.796783447265625,
+    "abs_error": 5.796783447265625,
+    "predicted_next_1hour": [
+      106.20322209596634,
+      76.76133516430855,
+      65.5834232866764
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 405.0,
+      "workers": 0.922551253,
+      "quarter": 95,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.5045045045045045,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  },
+  {
+    "timestamp": "2021-09-15 00:00:00",
+    "current_power": 112.0,
+    "predicted_next_15min": 77.1625747680664,
+    "actual_next_15min": 91.0,
+    "error": 13.837425231933594,
+    "abs_error": 13.837425231933594,
+    "predicted_next_1hour": [
+      77.16257473826408,
+      65.93304233253002
+    ],
+    "context": {
+      "temp": 22.0,
+      "humidity": 79.0,
+      "production": 405.0,
+      "workers": 0.922551253,
+      "quarter": 0,
+      "is_weekend": false,
+      "is_holiday": false
+    },
+    "risk": {
+      "level": "NORMAL",
+      "reason": "임계 이내",
+      "ratio_to_peak": 0.4099099099099099,
+      "bill_peak_baseline": 222.0,
+      "trigger": "actual"
+    },
+    "anomaly": false,
+    "status": "normal"
+  }
+]
