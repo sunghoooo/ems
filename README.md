@@ -16,7 +16,7 @@
 
 ```
 분석 모듈 (팀원)                       백엔드 (본 레포)
-LSTM 예측 + LLM 가이드    ─ HTTP POST →   POST /api/from-analyst
+TCN 예측 + LLM 가이드    ─ HTTP POST →   POST /api/from-analyst
                                           ├─ type: record      → 저장 + WS 즉시 송출
                                           └─ type: agent_guide → timestamp 매칭 저장
                                                                   + 커밋 후 WS 알림
