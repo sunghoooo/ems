@@ -190,6 +190,7 @@ public class PowerDataService {
             guide.setRecord(record);
             guide.setRiskLevel(rp.getRiskLevel());
             guide.setReason(rp.getReason());
+            guide.setAction(rp.getAction());
             guide.setEvidence(rp.getEvidence());
             guide.setLlmModel(dto.getLlmModel());
             guide.setCreatedAt(dto.getCreatedAt());
