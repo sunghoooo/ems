@@ -1,7 +1,6 @@
 # AI 기반 전력관리 시스템
 
 > 2026-1학기 종합설계 팀 프로젝트를 정리한 레포지토리입니다.
-> 원본은 2026년 상반기에 개발되었으며, 코드 복원 및 개선 작업을 진행 중입니다.
 
 ![웹 대시보드](image/dashboard.png)
 
@@ -45,9 +44,7 @@ TCN 예측 + LLM 가이드    ─ HTTP POST →   POST /api/from-analyst
 
 ## 실행 방법
 
-> 복원 진행 중 — Docker Compose 기반 원커맨드 실행 환경 구성 예정.
-
-현재는 로컬 MySQL(ems_db) 필요:
+로컬 MySQL(ems_db) 필요:
 
 ```bash
 ./gradlew bootRun
