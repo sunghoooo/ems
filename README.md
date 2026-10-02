@@ -16,13 +16,13 @@
 ## 아키텍처
 
 ```
-분석 모듈 (팀원)                       백엔드 (본 레포)
-TCN 예측 + LLM 가이드    ─ HTTP POST →   POST /api/from-analyst
-                                          ├─ type: record      → 저장 + WS 즉시 송출
-                                          └─ type: agent_guide → timestamp 매칭 저장
-                                                                  + 커밋 후 WS 알림
-                                          MySQL (power_record / ai_guide)
-                                          WebSocket /topic/alerts → 대시보드 (Chart.js)
+분석 모듈 (팀원)                           백엔드 (본 레포)
+TCN 예측 + LLM 가이드  ─ HTTP POST (JSON) →  POST /api/from-analyst
+                                              ├─ type: record      → 저장 + WS 즉시 송출
+                                              └─ type: agent_guide → timestamp 매칭 저장
+                                                                      + 커밋 후 WS 알림
+                                              MySQL (power_record / ai_guide)
+                                              WebSocket /topic/alerts → 대시보드 (Chart.js)
 ```
 
 ## 기술 스택
